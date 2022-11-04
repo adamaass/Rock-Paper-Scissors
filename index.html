@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock-Paper-Scissors</title>
+  </head>
+  <body>
+    <script>
+
+
+      function getComputerChoice () {
+        let randomNumber = Math.floor(Math.random() * 3)
+        switch (randomNumber) {
+          case 0:
+            return "Rock"
+          case 1:
+            return "Paper"
+          case 2:
+            return "Scissors"
+        }
+      }
+      
+      let resutl = "";
+      let playerScore = 0;
+      let computerScore = 0;
+
+
+      function playRound() {
+        let computerSelection = getComputerChoice();
+        console.log(computerSelection);
+        let playerSelection = prompt ("Rock, Paper or Scissors ?");
+        console.log(playerSelection);
+        if ( 
+          (playerSelection == "Rock" && computerSelection == "Rock") ||
+          (playerSelection == "Scissors" && computerSelection == "Scissors") ||
+          (playerSelection == "Paper" && computerSelection == "Paper")
+          ) {
+            resutl = "Equality";
+            console.log(resutl);
+        } else if (
+          (playerSelection == "Rock" && computerSelection == "Scissors") ||
+          (playerSelection == "Scissors" && computerSelection == "Paper") ||
+          (playerSelection == "Paper" && computerSelection == "Rock")
+          ) {
+            resutl = "Player Won";
+            console.log(resutl);
+            playerScore = ++playerScore;
+            
+        } else {
+          resutl = "Computer Won";
+          console.log(resutl);
+          computerScore = ++computerScore;
+         
+        }
+      }
+      
+      
+      function game() {
+        for (let i = 0; i< 5;i++) {
+          console.log("Round" + " " + `${i + 1}`);
+          playRound();
+        }
+      }
+      game();
+
+      if (i = 4 && playerScore > computerScore) { 
+            console.log("Player BIG won");
+          } else if ( i = 4 && playerScore < computerScore) {
+            console.log("computer BIG won");
+          } else {
+            console.log("Computer and player are Equality");
+          }
+    </script>
+  </body>
+
+</html>
